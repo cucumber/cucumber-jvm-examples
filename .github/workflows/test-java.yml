@@ -21,8 +21,9 @@ jobs:
           - calculator-java-junit-4
           - calculator-java-junit-jupiter
           - calculator-java-testng
+          - calculator-kotlin-junit-jupiter
 
-    name: 'Build Java ${{ matrix.example }}'
+    name: 'Test ${{ matrix.example }}'
     runs-on: ubuntu-latest
     
     steps:
