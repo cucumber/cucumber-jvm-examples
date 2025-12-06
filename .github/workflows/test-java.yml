@@ -15,7 +15,9 @@ jobs:
   build:
     strategy:
       matrix:
-        example: [ calculator-java8-cli ]
+        example:
+          - calculator-java8-cli
+
     name: 'Build Java ${{ matrix.example }}'
     runs-on: ubuntu-latest
     
@@ -28,4 +30,4 @@ jobs:
           cache: 'maven'
       - name: Maven Test
         run: mvn test
-        working-directory: ${{ matrix.example }}'
+        working-directory: ${{ matrix.example }}
