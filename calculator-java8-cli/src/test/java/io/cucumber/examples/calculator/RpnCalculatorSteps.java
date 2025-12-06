@@ -7,8 +7,7 @@ import io.cucumber.java8.Scenario;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RpnCalculatorSteps implements En {
 
@@ -27,7 +26,7 @@ public class RpnCalculatorSteps implements En {
 
         Given("^I press (.+)$", (String what) -> calc.push(what));
 
-        Then("the result is {double}", (Double expected) -> assertThat(calc.value(), equalTo(expected)));
+        Then("the result is {double}", (Double expected) -> assertThat(calc.value()).isEqualTo(expected));
 
         Before("not @foo", (Scenario scenario) -> {
             scenario.log("Runs before scenarios *not* tagged with @foo");

@@ -11,8 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShoppingSteps implements En {
 
@@ -38,7 +37,7 @@ public class ShoppingSteps implements En {
         });
 
         Then("my change should be {}", (Integer change) -> {
-            assertThat(-calc.value().intValue(), equalTo(change));
+            assertThat(-calc.value().intValue()).isEqualTo(change);
         });
 
         Given("the following shopping list:", (Grocery[] array) -> {
@@ -57,7 +56,7 @@ public class ShoppingSteps implements En {
             }
         }));
 
-        Then("price would be {int}", (Integer totalPrice) -> assertThat(groceriesPrice, equalTo(totalPrice)));
+        Then("price would be {int}", (Integer totalPrice) -> assertThat(groceriesPrice).isEqualTo(totalPrice));
 
         DataTableType((Map<String, String> row) -> new ShoppingSteps.Grocery(
             row.get("name"),
