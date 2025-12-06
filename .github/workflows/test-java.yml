@@ -20,6 +20,7 @@ jobs:
           - calculator-java-cli
           - calculator-java-junit-4
           - calculator-java-junit-jupiter
+          - calculator-java-testng
 
     name: 'Build Java ${{ matrix.example }}'
     runs-on: ubuntu-latest
