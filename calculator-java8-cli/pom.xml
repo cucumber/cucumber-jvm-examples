@@ -5,6 +5,7 @@
     <artifactId>calculator-java8-cli</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
+    
     <name>Calculator - Java - Lambda - CLI</name>
 
     <dependencyManagement>
@@ -20,6 +21,13 @@
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
                 <version>7.32.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>2.16.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -17,6 +17,7 @@ jobs:
       matrix:
         example:
           - calculator-java8-cli
+          - calculator-java-cli
 
     name: 'Build Java ${{ matrix.example }}'
     runs-on: ubuntu-latest

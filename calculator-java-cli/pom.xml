@@ -1,26 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>io.cucumber</groupId>
-        <artifactId>examples</artifactId>
-        <version>7.33.0-SNAPSHOT</version>
-    </parent>
-
+    <groupId>io.cucumber.examples</groupId>
     <artifactId>calculator-java-cli</artifactId>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
+    
     <name>Examples: Calculator - Java - Annotations - CLI</name>
-
-    <properties>
-        <project.Automatic-Module-Name>io.cucumber.examples.calculator</project.Automatic-Module-Name>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>${project.version}</version>
+                <version>7.32.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -28,6 +21,13 @@
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
                 <version>2.16.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-bom</artifactId>
+                <version>3.27.6</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -41,14 +41,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest</artifactId>
-            <version>2.2</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

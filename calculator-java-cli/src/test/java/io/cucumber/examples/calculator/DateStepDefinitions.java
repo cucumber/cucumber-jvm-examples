@@ -7,8 +7,7 @@ import io.cucumber.java.en.When;
 
 import java.time.LocalDate;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DateStepDefinitions {
 
@@ -32,7 +31,7 @@ public class DateStepDefinitions {
 
     @Then("^the result should be (yes|no)$")
     public void the_result_should_be(String expectedResult) {
-        assertThat(result, equalTo(expectedResult));
+        assertThat(result).isEqualTo(expectedResult);
     }
 
 }

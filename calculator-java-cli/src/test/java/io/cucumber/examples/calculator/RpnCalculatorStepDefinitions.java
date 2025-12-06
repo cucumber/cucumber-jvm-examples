@@ -11,8 +11,7 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RpnCalculatorStepDefinitions {
 
@@ -57,7 +56,7 @@ public class RpnCalculatorStepDefinitions {
 
     @Then("the result is {int}")
     public void the_result_is(double expected) {
-        assertThat(calc.value(), equalTo(expected));
+        assertThat(calc.value()).isEqualTo(expected);
     }
 
     @Given("the previous entries:")

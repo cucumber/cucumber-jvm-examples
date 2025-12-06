@@ -16,8 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static io.cucumber.examples.calculator.ShoppingStepDefinitions.Price.fromString;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ShoppingStepDefinitions {
 
@@ -59,7 +58,7 @@ public class ShoppingStepDefinitions {
 
     @Then("my change should be {}")
     public void my_change_should_be_(int change) {
-        assertThat(-calc.value().intValue(), equalTo(change));
+        assertThat(-calc.value().intValue()).isEqualTo(change);
     }
 
     @Given("the following shopping list:")
@@ -86,7 +85,7 @@ public class ShoppingStepDefinitions {
 
     @Then("price would be {int}")
     public void price_would_be(int totalPrice) {
-        assertThat(groceriesPrice, equalTo(totalPrice));
+        assertThat(groceriesPrice).isEqualTo(totalPrice);
     }
 
     static class Grocery {
