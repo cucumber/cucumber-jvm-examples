@@ -2,18 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>io.cucumber</groupId>
-        <artifactId>examples</artifactId>
-        <version>7.33.0-SNAPSHOT</version>
-    </parent>
-
+    <groupId>io.cucumber.examples</groupId>
     <artifactId>calculator-java-junit5</artifactId>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>Examples: Calculator - Java - Annotations - Junit 5</name>
+    
+    <name>Calculator - Java - Annotations - Junit Jupiter</name>
 
     <properties>
-        <project.Automatic-Module-Name>io.cucumber.examples.calculator</project.Automatic-Module-Name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
     <dependencyManagement>
@@ -21,7 +19,7 @@
             <dependency>
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-bom</artifactId>
-                <version>${project.version}</version>
+                <version>7.32.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,7 +84,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.4</version>
                 <configuration>
                     <properties>
                         <!-- Work around. Surefire does not include enough information to disambiguate between different
@@ -114,7 +118,7 @@
                         </goals>
                         <configuration>
                             <target unless="maven.test.skip">
-                                <echo message="Running JUnit Platform CLI"/>
+                                <echo message="Running JUnit Platform CLI" level="info" />
                                 <java classname="org.junit.platform.console.ConsoleLauncher" fork="true"
                                       failonerror="true" newenvironment="true" maxmemory="512m"
                                       classpathref="maven.test.classpath">
