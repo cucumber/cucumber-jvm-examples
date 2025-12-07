@@ -9,7 +9,7 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>Calculator - Kotlin - Annotations - Junit Jupiter</name>
+    <name>Calculator - Kotlin - Annotations - Junit 5</name>
 
     <properties>
         <kotlin.code.style>official</kotlin.code.style>
@@ -135,7 +135,7 @@
                         </goals>
                         <configuration>
                             <target unless="maven.test.skip">
-                                <echo message="Running JUnit Platform CLI" level="info" />
+                                <echo message="Running JUnit Platform CLI"/>
                                 <java classname="org.junit.platform.console.ConsoleLauncher" fork="true"
                                       failonerror="true" newenvironment="true" maxmemory="512m"
                                       classpathref="maven.test.classpath">
