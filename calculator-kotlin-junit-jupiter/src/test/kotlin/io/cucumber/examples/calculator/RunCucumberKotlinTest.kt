@@ -7,9 +7,10 @@ import org.junit.platform.suite.api.SelectPackages
 import org.junit.platform.suite.api.ConfigurationParameter
 
 /**
- * Work around. Surefire does not use JUnits Test Engine discovery
- * functionality. Alternatively execute the
- * org.junit.platform.console.ConsoleLauncher with the maven-antrun-plugin.
+ * Run Cucumber through the JUnit Platform Suite Engine.
+ *
+ * <p>Surefire does not use JUnits Test Engine discovery functionality and can
+ * only discover class based tests.
  */
 @Suite
 @IncludeEngines("cucumber")

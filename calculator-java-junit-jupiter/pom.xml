@@ -101,40 +101,6 @@
                     </properties>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <!-- Work around. Surefire does not use JUnits Test Engine discovery functionality.
-
-                             Alternatively use the JUnit Platform Suite Engine.
-                         -->
-                        <id>cli-test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target unless="maven.test.skip">
-                                <echo message="Running JUnit Platform CLI" level="info" />
-                                <java classname="org.junit.platform.console.ConsoleLauncher" fork="true"
-                                      failonerror="true" newenvironment="true" maxmemory="512m"
-                                      classpathref="maven.test.classpath">
-                                    <arg value="--include-engine"/>
-                                    <arg value="cucumber"/>
-                                    <arg value="--scan-classpath"/>
-                                    <arg value="${project.build.testOutputDirectory}"/>
-                                    <arg value="--reports-dir"/>
-                                    <arg value="${project.build.directory}/cucumber-reports"/>
-                                </java>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
