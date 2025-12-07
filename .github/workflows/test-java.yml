@@ -24,7 +24,7 @@ jobs:
           - calculator-kotlin-junit-jupiter
           - spring-java-junit-jupiter
 
-    name: 'Test ${{ matrix.example }}'
+    name: '${{ matrix.example }}'
     runs-on: ubuntu-latest
     
     steps:
