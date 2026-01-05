@@ -1,11 +1,7 @@
 package com.example.spring;
 
-import jakarta.persistence.Access;
-import jakarta.persistence.AccessType;
-import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -14,15 +10,11 @@ import java.util.StringJoiner;
 
 @Entity
 @Table(name = "messages")
-@Access(AccessType.PROPERTY)
 public class Message {
 
-    @Access(AccessType.FIELD)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private @Id @GeneratedValue Long id;
 
-    private User author;
+    private @ManyToOne(optional = false) User author;
 
     private String content;
 
@@ -34,7 +26,14 @@ public class Message {
         this.content = content;
     }
 
-    @ManyToOne(optional = false)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public User getAuthor() {
         return author;
     }
@@ -43,7 +42,6 @@ public class Message {
         this.author = author;
     }
 
-    @Basic(optional = false)
     public String getContent() {
         return content;
     }

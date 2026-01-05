@@ -1,16 +1,13 @@
 package com.example.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
+import java.util.List;
 
-@Controller
-@RequestMapping("/users")
+@RestController("/users")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -21,16 +18,16 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable Long id, Model model) {
-        Optional<User> user = userRepository.findById(id);
+    public User one(@PathVariable Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+    }
 
-        if (user.isEmpty()) {
-            throw new IllegalArgumentException("" + id);
-        }
-
-        model.addAttribute("user", user.get());
-
-        return "user";
+    @GetMapping("/{id}/messages")
+    public List<Message> messages(@PathVariable Long id) {
+        return userRepository.findById(id)
+                .map(User::getMessages)
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
 }
