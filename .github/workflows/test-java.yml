@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         example:
-          - calculator-java8-cli
+          - calculator-java8-junit-jupiter
           - calculator-java-cli
           - calculator-java-junit-4
           - calculator-java-junit-jupiter
