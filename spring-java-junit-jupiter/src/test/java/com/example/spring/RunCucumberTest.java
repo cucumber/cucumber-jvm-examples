@@ -9,5 +9,5 @@ import org.junit.platform.suite.api.Suite;
 @IncludeEngines("cucumber")
 @SelectPackages("com.example.spring")
 @ConfigurationParametersResource("cucumber.properties")
-public class RunCucumberTest {
+class RunCucumberTest {
 }

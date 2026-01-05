@@ -15,5 +15,5 @@ import org.junit.platform.suite.api.Suite;
 @IncludeEngines("cucumber")
 @SelectPackages("com.example.calculator")
 @ConfigurationParametersResource("cucumber.properties")
-public class RunCucumberTest {
+class RunCucumberTest {
 }
