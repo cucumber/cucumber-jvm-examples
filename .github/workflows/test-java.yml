@@ -14,6 +14,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: true
       matrix:
         example:
           - calculator-java8-junit-jupiter
