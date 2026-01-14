@@ -15,8 +15,7 @@ class ShoppingStepDefinitions {
 
 
     @Given("the following groceries")
-    fun givenTheFollowingGroceries(grocery: DataTable){
-        val groceries: List<Grocery> = grocery.asList(Grocery::class.java)
+    fun givenTheFollowingGroceries(groceries: List<Grocery>){
         groceryList.addAll(groceries)
         for (gro in groceries){
             rpnCalculator.push(gro.price.value)
