@@ -23,6 +23,7 @@ jobs:
           - calculator-java-junit-jupiter
           - calculator-java-testng
           - calculator-kotlin-junit-jupiter
+          - guice-java-junit-jupiter
           - spring-java-junit-jupiter
 
     name: '${{ matrix.example }}'

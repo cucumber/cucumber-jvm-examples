@@ -60,6 +60,4 @@ TODO: See [cucumber-picocontainer](https://github.com/cucumber/cucumber-jvm/tree
 
 ### Guice
 
-TODO:
-
-TODO: See [cucumber-guice](https://github.com/cucumber/cucumber-jvm/tree/main/cucumber-guice).
+The [guice-java-junit-jupiter](./guice-java-junit-jupiter) demonstrates the use of [cucumber-guice](https://github.com/cucumber/cucumber-jvm/tree/main/cucumber-guice) for Guice dependency injection using the annotation-based `@ScenarioScoped` approach.
