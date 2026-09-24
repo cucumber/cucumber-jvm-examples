@@ -1,6 +1,5 @@
 package com.example.calculator
 
-import io.cucumber.datatable.DataTable
 import com.example.calaculator.RpnCalculator
 import io.cucumber.java.DataTableType
 import io.cucumber.java.en.Given
@@ -10,16 +9,11 @@ import kotlin.test.assertEquals
 
 class ShoppingStepDefinitions {
     private val rpnCalculator = RpnCalculator()
-    private val groceryList = mutableListOf<Grocery>()
-
-
 
     @Given("the following groceries")
-    fun givenTheFollowingGroceries(grocery: DataTable){
-        val groceries: List<Grocery> = grocery.asList(Grocery::class.java)
-        groceryList.addAll(groceries)
-        for (gro in groceries){
-            rpnCalculator.push(gro.price.value)
+    fun givenTheFollowingGroceries(groceries: List<Grocery>){
+        for (grocery in groceries){
+            rpnCalculator.push(grocery.price.value)
             rpnCalculator.push("+")
         }
     }
