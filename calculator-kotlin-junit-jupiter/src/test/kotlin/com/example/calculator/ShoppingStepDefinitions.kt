@@ -9,11 +9,9 @@ import kotlin.test.assertEquals
 
 class ShoppingStepDefinitions {
     private val rpnCalculator = RpnCalculator()
-    private val groceryList = mutableListOf<Grocery>()
 
     @Given("the following groceries")
     fun givenTheFollowingGroceries(groceries: List<Grocery>){
-        groceryList.addAll(groceries)
         for (grocery in groceries){
             rpnCalculator.push(grocery.price.value)
             rpnCalculator.push("+")
