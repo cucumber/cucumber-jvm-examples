@@ -7,6 +7,6 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 @CucumberContextConfiguration
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CucumberTestContextConfiguration {
+class CucumberTestContextConfiguration {
 
 }

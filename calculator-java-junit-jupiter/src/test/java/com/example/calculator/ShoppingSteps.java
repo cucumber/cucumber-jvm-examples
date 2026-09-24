@@ -8,12 +8,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ShoppingSteps {
+class ShoppingSteps {
 
     private final RpnCalculator calc = new RpnCalculator();
 
     @Given("the following groceries:")
-    public void the_following_groceries(List<Grocery> groceries) {
+    void the_following_groceries(List<Grocery> groceries) {
         for (Grocery grocery : groceries) {
             calc.push(grocery.price.value);
             calc.push("+");
@@ -21,13 +21,13 @@ public class ShoppingSteps {
     }
 
     @When("I pay {}")
-    public void i_pay(int amount) {
+    void i_pay(int amount) {
         calc.push(amount);
         calc.push("-");
     }
 
     @Then("my change should be {}")
-    public void my_change_should_be_(int change) {
+    void my_change_should_be_(int change) {
         assertThat(-calc.value().intValue()).isEqualTo(change);
     }
 

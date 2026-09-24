@@ -8,23 +8,23 @@ import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DateStepDefinitions {
+class DateStepDefinitions {
 
     private String result;
     private DateCalculator calculator;
 
     @Given("^today is ([0-9]{4}-[0-9]{2}-[0-9]{2})$")
-    public void today_is(Date date) {
+    void today_is(Date date) {
         calculator = new DateCalculator(date);
     }
 
     @When("^I ask if ([0-9]{4}-[0-9]{2}-[0-9]{2}) is in the past$")
-    public void I_ask_if_date_is_in_the_past(Date date) {
+    void I_ask_if_date_is_in_the_past(Date date) {
         result = calculator.isDateInThePast(date);
     }
 
     @Then("^the result should be (yes|no)$")
-    public void the_result_should_be(String expectedResult) {
+    void the_result_should_be(String expectedResult) {
         assertThat(result).isEqualTo(expectedResult);
     }
 }

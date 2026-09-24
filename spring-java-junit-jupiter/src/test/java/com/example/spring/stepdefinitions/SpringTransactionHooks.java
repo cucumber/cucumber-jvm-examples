@@ -30,7 +30,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
  * run.
  * </p>
  */
-public class SpringTransactionHooks implements BeanFactoryAware {
+class SpringTransactionHooks implements BeanFactoryAware {
 
     private BeanFactory beanFactory;
     private TransactionStatus transactionStatus;
@@ -41,17 +41,17 @@ public class SpringTransactionHooks implements BeanFactoryAware {
     }
 
     @Before(value = "@txn", order = 100)
-    public void startTransaction() {
+    void startTransaction() {
         transactionStatus = obtainPlatformTransactionManager()
                 .getTransaction(new DefaultTransactionDefinition());
     }
 
-    public PlatformTransactionManager obtainPlatformTransactionManager() {
+    PlatformTransactionManager obtainPlatformTransactionManager() {
         return beanFactory.getBean(PlatformTransactionManager.class);
     }
 
     @After(value = "@txn", order = 100)
-    public void rollBackTransaction() {
+    void rollBackTransaction() {
         obtainPlatformTransactionManager()
                 .rollback(transactionStatus);
     }

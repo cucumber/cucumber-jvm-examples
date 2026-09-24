@@ -13,54 +13,54 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RpnCalculatorStepDefinitions {
+class RpnCalculatorStepDefinitions {
 
     private RpnCalculator calc;
 
     @BeforeAll
-    public static void beforeAll() {
+    static void beforeAll() {
         // Runs before all scenarios
     }
 
     @AfterAll
-    public static void afterAll() {
+    static void afterAll() {
         // Runs after all scenarios
     }
 
     @Before("not @foo")
-    public void before(Scenario scenario) {
+    void before(Scenario scenario) {
         scenario.log("Runs before each scenarios *not* tagged with @foo");
     }
 
     @After
-    public void after(Scenario scenario) {
+    void after(Scenario scenario) {
         scenario.log("Runs after each scenarios");
     }
 
     @Given("a calculator I just turned on")
-    public void a_calculator_I_just_turned_on() {
+    void a_calculator_I_just_turned_on() {
         calc = new RpnCalculator();
     }
 
     @When("I add {int} and {int}")
-    public void adding(int arg1, int arg2) {
+    void adding(int arg1, int arg2) {
         calc.push(arg1);
         calc.push(arg2);
         calc.push("+");
     }
 
     @Given("^I press (.+)$")
-    public void I_press(String what) {
+    void I_press(String what) {
         calc.push(what);
     }
 
     @Then("the result is {int}")
-    public void the_result_is(double expected) {
+    void the_result_is(double expected) {
         assertThat(calc.value()).isEqualTo(expected);
     }
 
     @Given("the previous entries:")
-    public void thePreviousEntries(List<Entry> entries) {
+    void thePreviousEntries(List<Entry> entries) {
         for (Entry entry : entries) {
             calc.push(entry.first);
             calc.push(entry.second);

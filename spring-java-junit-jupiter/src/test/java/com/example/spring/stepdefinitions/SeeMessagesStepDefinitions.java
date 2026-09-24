@@ -9,18 +9,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class SeeMessagesStepDefinitions {
+class SeeMessagesStepDefinitions {
 
     private final MockMvc mockMvc;
     private final UserStepDefinitions userStepDefinitions;
 
-    public SeeMessagesStepDefinitions(MockMvc mockMvc, UserStepDefinitions userStepDefinitions) {
+    SeeMessagesStepDefinitions(MockMvc mockMvc, UserStepDefinitions userStepDefinitions) {
         this.mockMvc = mockMvc;
         this.userStepDefinitions = userStepDefinitions;
     }
 
     @Then("I should see {string} in the users messages")
-    public void i_should_see(String content) throws Exception {
+    void i_should_see(String content) throws Exception {
         User user = userStepDefinitions.getCurrentUser();
         mockMvc.perform(get("/users/{id}/messages", user.getId()))
                 .andExpect(status().isOk())

@@ -74,7 +74,7 @@ public class ShoppingStepDefinitions {
     @When("I count shopping price")
     public void i_count_shopping_price() {
         shoppingList.forEach(grocery -> {
-            for (Grocery shopGrocery : shopStock) {
+            for (var shopGrocery : shopStock) {
                 if (grocery.equals(shopGrocery)) {
                     groceriesPrice += shopGrocery.price.value;
                 }

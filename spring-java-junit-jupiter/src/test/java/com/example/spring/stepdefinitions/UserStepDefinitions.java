@@ -4,22 +4,22 @@ import com.example.spring.User;
 import com.example.spring.UserRepository;
 import io.cucumber.java.en.Given;
 
-public class UserStepDefinitions {
+class UserStepDefinitions {
 
     private final UserRepository userRepository;
 
     private User currentUser;
 
-    public UserStepDefinitions(UserRepository userRepository) {
+    UserStepDefinitions(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Given("there is a user")
-    public void there_is_a_user() {
+    void there_is_a_user() {
         currentUser = userRepository.save(new User("John Doe"));
     }
 
-    public User getCurrentUser() {
+    User getCurrentUser() {
         return currentUser;
     }
 

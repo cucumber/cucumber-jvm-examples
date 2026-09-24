@@ -9,11 +9,11 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RpnCalculatorSteps implements En {
+class RpnCalculatorSteps implements En {
 
     private RpnCalculator calc;
 
-    public RpnCalculatorSteps() {
+    RpnCalculatorSteps() {
         Given("a calculator I just turned on", () -> {
             calc = new RpnCalculator();
         });
